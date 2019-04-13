@@ -14,11 +14,11 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Define API routes here
-app.use(routes);
-
 //Mongo Connect
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
+
+// Define API routes here
+app.use(routes);
 
 // Send every other request to the React app
 // Define any API routes before this runs
