@@ -6,19 +6,19 @@ function Nav() {
       <a className="navbar-brand" href="/">
         BookMe Google
       </a>
-      <div class="collapse navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/saved">Saved</a>
-      </li>
-      
-    </ul>
-    
-  </div>
-      
+      <div className="collapse navbar-collapse" id="navbarColor01">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item">
+            <a className="nav-link" href="/">Search</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/saved">Saved</a>
+          </li>
+
+        </ul>
+
+      </div>
+
     </nav>
   );
 }
