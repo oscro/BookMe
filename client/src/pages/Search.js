@@ -80,7 +80,7 @@ class Search extends Component {
             // authors: author.toString(),
             // description: description.toString()
         )
-        .then(res=> this.apiQuery(this.state.query))
+        .then(res=> console.log("This book is saved!"))
         .catch(err=> console.log(err));
     }
 
@@ -109,7 +109,7 @@ class Search extends Component {
                                 description={book.volumeInfo.description}
                                 onClick={()=>this.saveBook({
                                     title: book.volumeInfo.title,
-                                    author: book.volumeInfo.authors,
+                                    author: book.volumeInfo.authors.join(", "),
                                     description: book.volumeInfo.description,
                                 })}
                             />
