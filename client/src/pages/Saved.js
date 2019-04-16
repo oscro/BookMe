@@ -2,8 +2,8 @@ import React from "react";
 
 function Saved () {
     return (
-        <div>
-            Hello World! This is the Saved Page!!!!!!
+        <div className="container">
+            This is the saved page!
         </div>
     )
 }

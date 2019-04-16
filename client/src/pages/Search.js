@@ -10,9 +10,9 @@ class Search extends Component {
     state = {
         query: query,
         books: [],
-        title: "",
-        authors: "",
-        description: "",
+        title: "testTitle",
+        author: "testAuthor",
+        description: "testDescription",
         image: "",
         link: "",
     }
@@ -41,7 +41,6 @@ class Search extends Component {
         })
 
         console.log("Query: " + this.state.query)
-
     }
 
     handleFormSubmit = event => {
@@ -57,7 +56,33 @@ class Search extends Component {
 
 
         }
-    };
+    }
+
+    grabBook = (bookData) => {
+        return axios.post("/api/save", bookData);
+    }
+
+    saveBook = book => {
+
+        this.setState(book)
+        
+       let title = this.state.title;
+       let author = this.state.author;
+       let description = this.state.description;
+
+        console.log("Title: " + this.state.title)
+        console.log("Author: " + this.state.author)
+        console.log("Description: " + this.state.description)
+
+        this.grabBook(
+            book
+            // title: title.toString(),
+            // authors: author.toString(),
+            // description: description.toString()
+        )
+        .then(res=> this.apiQuery(this.state.query))
+        .catch(err=> console.log(err));
+    }
 
     render() {
         return (
@@ -82,6 +107,11 @@ class Search extends Component {
                                 author={book.volumeInfo.authors}
                                 title={book.volumeInfo.title}
                                 description={book.volumeInfo.description}
+                                onClick={()=>this.saveBook({
+                                    title: book.volumeInfo.title,
+                                    author: book.volumeInfo.authors,
+                                    description: book.volumeInfo.description,
+                                })}
                             />
                         ))
                     ) : (
